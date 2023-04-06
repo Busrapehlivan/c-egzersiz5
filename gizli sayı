@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int gizli_sayi, tahmin, sayac = 0;
+    srand(time(NULL)); // Rastgele sayı üretmek için zamanı kullan
+
+    gizli_sayi = rand() % 100 + 1; // 1-100 arasında rastgele bir sayı seç
+
+    printf("1-100 arasinda bir sayi tuttum, hadi tahmin et!\n");
+
+    do {
+        printf("Tahmininizi girin: ");
+        scanf("%d", &tahmin);
+        sayac++; // Tahmin sayısını bir arttır
+
+        if (tahmin < gizli_sayi) {
+            printf("Kucuk!\n");
+        } else if (tahmin > gizli_sayi) {
+            printf("Buyuk!\n");
+        } else {
+            printf("Dogru! %d. tahminde buldunuz.\n", sayac);
+        }
+    } while (tahmin != gizli_sayi);
+
+    return 0;
+}
